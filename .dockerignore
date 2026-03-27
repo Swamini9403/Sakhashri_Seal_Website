@@ -1,0 +1,13 @@
+.git
+node_modules
+npm-debug.log
+docker-compose.yml
+Dockerfile.frontend
+backend/Dockerfile
+backend/node_modules
+backend/.env
+backend/package-lock.json
+*.md
+supabase_migration.sql
+generate-image.html
+.antigravityignore

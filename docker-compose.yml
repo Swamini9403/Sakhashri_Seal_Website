@@ -1,0 +1,26 @@
+# SAKHASHRI SEALS - DOCKER COMPOSE CONFIGURATION
+# Production Ready Unified Service (Frontend + Backend)
+
+version: '3.8'
+
+services:
+  # The unified web application service
+  # Handles both static website files and API on port 3000
+  sakhashri-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    
+    # Securely load your Supabase configuration from the existing .env
+    env_file:
+      - ./backend/.env
+    
+    # Auto-restart on failure for higher uptime
+    restart: always
+
+    # Optimization for production
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
