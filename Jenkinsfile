@@ -34,8 +34,8 @@ pipeline {
                         echo 'Tagging and Pushing Image...'
                         // Tagging the built image for Docker Hub
                         // We use the service name from docker-compose + current build ID
-                        sh "docker tag sakhashri_seal_website-sakhashri-app ${DOCKER_IMAGE}:latest"
-                        sh "docker tag sakhashri_seal_website-sakhashri-app ${DOCKER_IMAGE}:${BUILD_NUMBER}"
+                        sh "docker tag sakhashri-app ${DOCKER_IMAGE}:latest"
+                        sh "docker tag sakhashri-app ${DOCKER_IMAGE}:${BUILD_NUMBER}"
                         
                         sh "docker push ${DOCKER_IMAGE}:latest"
                         sh "docker push ${DOCKER_IMAGE}:${BUILD_NUMBER}"

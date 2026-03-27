@@ -7,6 +7,7 @@ services:
   # The unified web application service
   # Handles both static website files and API on port 3000
   sakhashri-app:
+    image: sakhashri-app
     build:
       context: .
       dockerfile: Dockerfile
