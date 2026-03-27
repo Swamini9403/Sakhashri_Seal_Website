@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover { background: #059669; }
+    button:disabled { background: #ccc; }
+    .log {
+      margin-top: 20px;
+      padding: 15px;
+      background: #000;
+      color: #0f0;
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 12px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contact Form Test</h1>
+  
+  <form id="testForm">
+    <input type="text" name="full_name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone_number" placeholder="Phone" required>
+    <select name="inquiry_type" required>
+      <option value="">Select Type</option>
+      <option>General Inquiry</option>
+      <option>Product Inquiry</option>
+      <option>Support</option>
+    </select>
+    <textarea name="requirement" placeholder="Your Message" rows="4"></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div class="log" id="log">Waiting...</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const log = document.getElementById('log');
+    function addLog(msg) {
+      log.innerHTML += msg + '\n';
+      log.scrollTop = log.scrollHeight;
+      console.log(msg);
+    }
+
+    addLog('Page loaded');
+    addLog('Checking Supabase library...');
+    
+    if (typeof window.supabase === 'undefined') {
+      addLog('❌ Supabase library NOT loaded!');
+    } else {
+      addLog('✅ Supabase library loaded');
+    }
+
+    const SUPABASE_URL = 'https://zcgulflccppijpoixuzr.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpjZ3VsZmxjY3BwaWpwb2l4dXpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2MTYxMTQsImV4cCI6MjA5MDE5MjExNH0.SJ7d2lZpbiCiy4XVXw8wpNOXn4pnqbC01pMsj9wZe4k';
+
+    let supabase;
+
+    setTimeout(() => {
+      if (window.supabase && window.supabase.createClient) {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+        addLog('✅ Supabase client initialized');
+      } else {
+        addLog('❌ Failed to initialize client');
+      }
+    }, 500);
+
+    document.getElementById('testForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      addLog('Form submitted');
+      
+      if (!supabase) {
+        addLog('❌ Supabase not ready');
+        alert('System not ready');
+        return;
+      }
+
+      const formData = {
+        full_name: e.target.full_name.value,
+        email: e.target.email.value,
+        phone_number: e.target.phone_number.value,
+        inquiry_type: e.target.inquiry_type.value,
+        requirement: e.target.requirement.value
+      };
+
+      addLog('Data: ' + JSON.stringify(formData));
+      addLog('Sending to database...');
+
+      try {
+        const { data, error } = await supabase
+          .from('contact_messages')
+          .insert([formData])
+          .select();
+
+        if (error) {
+          addLog('❌ Error: ' + error.message);
+          alert('Error: ' + error.message);
+        } else {
+          addLog('✅ SUCCESS! Data inserted');
+          addLog('Response: ' + JSON.stringify(data));
+          alert('✅ Message sent successfully!');
+          e.target.reset();
+        }
+      } catch (err) {
+        addLog('❌ Exception: ' + err.message);
+        alert('Exception: ' + err.message);
+      }
+    });
+  </script>
+</body>
+</html>

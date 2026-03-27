@@ -98,7 +98,7 @@ form.addEventListener("mouseleave", () => {
 /* ================= BUTTON RIPPLE ================= */
 const button = document.querySelector(".location-form button");
 
-button.addEventListener("click", function(e) {
+button.addEventListener("click", function (e) {
   const circle = document.createElement("span");
   const diameter = Math.max(this.clientWidth, this.clientHeight);
   const radius = diameter / 2;

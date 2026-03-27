@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Connect With Us</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect With Us</title>
 
-<link rel="stylesheet" href="../Style/Contact.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../Style/Contact.css">
+  <link rel="stylesheet" href="../Style/navbar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
-<body>
-    <div class="cursor"></div>
-    
+
+<!-- ===== SHARED NAVBAR ===== -->
+<nav class="main-navbar">
+  <div class="navbar-inner">
+    <div class="nav-logo"><a href="Homeindex.html"><img src="../assets/images/logo2.jpeg" alt="Logo"><span>Sakhashri
+          Seals</span></a></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="Homeindex.html">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li class="nav-has-dropdown"><a href="Product.html" class="nav-dropdown-trigger">Products <span class="arrow">▼</span></a>
+        <div class="dropdown-menu">
+          <a href="products/oil-seals.html">Oil Seals <span class="dd-arrow">→</span></a><a
+            href="products/o-ring.html">O Ring <span class="dd-arrow">→</span></a><a href="products/pu-u-seal.html">PU U
+            Seal <span class="dd-arrow">→</span></a><a href="products/rotary-oil-seal.html">Rotary Oil Seal <span
+              class="dd-arrow">→</span></a><a href="products/rod-step-seal.html">Rod Step Seal <span
+              class="dd-arrow">→</span></a><a href="products/pneumatic-seal.html">Pneumatic Seal <span
+              class="dd-arrow">→</span></a><a href="products/mechanical-seal.html">Mechanical Seal <span
+              class="dd-arrow">→</span></a><a href="products/piston-glyd-ring.html">Piston Glyd Ring <span
+              class="dd-arrow">→</span></a><a href="products/hydraulic-cylinder-seal-kit.html">Hydraulic Cylinder Seal
+            Kit <span class="dd-arrow">→</span></a><a href="products/chevron-packing-seal.html">Chevron Packing Seal
+            <span class="dd-arrow">→</span></a><a href="products/wiper-dust-seal.html">Wiper Dust Seals <span
+              class="dd-arrow">→</span></a><a href="products/dowty-bonded-seal.html">Dowty Bonded Seals <span
+              class="dd-arrow">→</span></a>
+        </div>
+      </li>
+      <li><a href="productgallery.html">Gallery</a></li>
+      <li class="active"><a href="Contact.html">Contact</a></li>
+    </ul>
+    <div style="display:flex;gap:10px;align-items:center;"><button class="theme-btn" id="themeToggleNav">🌙</button>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+<div class="cursor"></div>
+
 
 <!-- ================= HERO ================= -->
 <section class="contact-hero">
@@ -31,9 +63,9 @@
   </div>
 
   <!-- 🌙 DARK MODE TOGGLE -->
-<div class="theme-toggle" onclick="toggleTheme()">
-  <span id="themeIcon">🌙</span>
-</div>
+  <div class="theme-toggle" onclick="toggleTheme()">
+    <span id="themeIcon">🌙</span>
+  </div>
 
 
   <!-- TEXT CENTER -->
@@ -55,10 +87,10 @@
 
 </section>
 
-  <div class="hero-text">
-    <h1>Reliable Seal Kits for Hydraulic Cylinders</h1>
-    <p>Quality PU, PTFE, NBR and Rubber seals for excavators and heavy equipment</p>
-  </div>
+<div class="hero-text">
+  <h1>Reliable Seal Kits for Hydraulic Cylinders</h1>
+  <p>Quality PU, PTFE, NBR and Rubber seals for excavators and heavy equipment</p>
+</div>
 
 </section>
 
@@ -107,7 +139,7 @@
 <section class="info-block">
 
   <div class="info-text">
-    <h2>Why Choose Sakhashri Seals?</h2>
+    <h2>Why Choose Sakhashri Seals Corporation?</h2>
 
     <p>
       We specialize in high-performance sealing systems designed for extreme industrial conditions.
@@ -235,7 +267,7 @@
   <div class="footer-container">
 
     <div class="footer-left">
-      <h2>Sakhashri Seals</h2>
+      <h2>Sakhashri Seals Corporation</h2>
       <p>Delivering high-performance sealing solutions with precision and trust.</p>
     </div>
 
@@ -261,5 +293,8 @@
 
 </footer>
 
+<script src="../Script/Contact.js"></script>
+<script src="../Script/navbar.js"></script>
 </body>
+
 </html>
