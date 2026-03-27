@@ -8,12 +8,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Swamini9403/Sakhashri_Seal_Website.git'
-            }
-        }
-
         stage('Build & Test') {
             steps {
                 echo 'Building and starting containers...'
