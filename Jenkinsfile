@@ -40,12 +40,13 @@ pipeline {
     }
 
     post {
-        
         success {
-            echo 'Deployment Pipeline Completed Successfully!'
+            echo 'Deployment Pipeline Completed Successfully! Application is now live on port 3000. 🚀'
         }
         failure {
-            echo 'Pipeline failed. Please check Jenkins logs and Docker Compose status.'
+            echo 'Pipeline failed. Cleaning up test environment...'
+            sh 'docker-compose down'
+            echo 'Please check Jenkins logs and Docker Compose status for errors.'
         }
     }
 }
