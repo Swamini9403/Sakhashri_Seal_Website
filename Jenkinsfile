@@ -8,12 +8,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Swamini9403/Sakhashri_Seal_Website.git'
-            }
-        }
-
         stage('Build & Test') {
             steps {
                 echo 'Building and starting containers...'
@@ -21,7 +15,7 @@ pipeline {
                 
                 echo 'Waiting for application to become healthy...'
                 // Wait up to 30 seconds for port 3000 to be responsive
-                sh 'sleep 10 && curl --silent --fail http://localhost:3000/api/health || (docker compose logs && exit 1)'
+                sh 'sleep 10 && curl --silent --fail http://localhost:3000/api/health || (docker-compose logs && exit 1)'
             }
         }
 
@@ -32,10 +26,10 @@ pipeline {
                         sh 'echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USERNAME --password-stdin'
                         
                         echo 'Tagging and Pushing Image...'
-                        // Tagging the built image for Docker Hub
-                        // We use the service name from docker-compose + current build ID
-                        sh "docker tag sakhashri_seal_website-sakhashri-app ${DOCKER_IMAGE}:latest"
-                        sh "docker tag sakhashri_seal_website-sakhashri-app ${DOCKER_IMAGE}:${BUILD_NUMBER}"
+                        
+                        // Using the explicit image name from docker-compose.yml for consistency
+                        sh "docker tag sakhashri-app ${DOCKER_IMAGE}:latest"
+                        sh "docker tag sakhashri-app ${DOCKER_IMAGE}:${BUILD_NUMBER}"
                         
                         sh "docker push ${DOCKER_IMAGE}:latest"
                         sh "docker push ${DOCKER_IMAGE}:${BUILD_NUMBER}"
