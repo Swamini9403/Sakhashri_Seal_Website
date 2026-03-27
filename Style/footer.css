@@ -1,0 +1,174 @@
+/* ============================================================
+   PREMIUM SHARED FOOTER — Sakhashri Seals Corporation
+   ============================================================ */
+
+.main-footer {
+    background-color: #020b13; /* Even deeper, more premium navy */
+    background-image: 
+        radial-gradient(circle at 2px 2px, rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 24px 24px;
+    color: #f1f5f9;
+    font-family: 'Poppins', sans-serif;
+    padding: 80px 0 0 0;
+    border-top: 4px solid #3b82f6; /* More vibrant blue */
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 50px;
+    padding-bottom: 40px;
+}
+
+.footer-col h3 {
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #0ea5e9;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.footer-list li a, .footer-list li span {
+    color: #94a3b8; /* Professional slate gray */
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    line-height: 1.6;
+}
+
+.footer-list li a:hover {
+    color: #3b82f6;
+    padding-left: 8px;
+}
+
+.footer-list i {
+    color: #3b82f6;
+    font-size: 1.1rem;
+    margin-top: 3px;
+    width: 20px;
+}
+
+.contact-list li span, .contact-list li div a {
+    color: #e2e8f0 !important; /* Ensure contact info is bright and readable */
+    text-decoration: none;
+}
+
+/* Specific styling for the list icons in user's image */
+.footer-list li::before {
+    content: '\f192'; /* circle-dot */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.footer-list.contact-list li::before {
+    content: none; /* Hide bullets for contact list as we use explicit icons */
+}
+
+.footer-bottom {
+    background: #020c14;
+    padding: 25px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.footer-socials a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-socials a:hover {
+    background: #3b82f6;
+    color: #fff;
+    transform: translateY(-5px) rotate(360deg);
+    border-color: #3b82f6;
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+}
+
+.footer-legal-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-legal-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.82rem;
+}
+
+.footer-legal-links a:hover {
+    color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-list li {
+        justify-content: center;
+    }
+}

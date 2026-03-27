@@ -6,31 +6,16 @@ body{
 
 
 /* HERO */
-.contact-hero{
-  height:320px;
-  background:linear-gradient(135deg,#001f4d,#003366);
-  border-bottom-left-radius:50% 20%;
-  border-bottom-right-radius:50% 20%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  position:relative;
-}
-
-
-
-/* ================= HERO ================= */
 .contact-hero {
   position: relative;
   height: 320px;
-  background: #0b3a67;
+  background: linear-gradient(135deg, #001f4d, #003366);
   border-bottom-left-radius: 120px;
   border-bottom-right-radius: 120px;
-
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
   overflow: hidden;
 }
 
@@ -38,7 +23,8 @@ body{
 .hero-text {
   text-align: center;
   color: white;
-  z-index: 2;
+  z-index: 10;
+  position: relative;
 }
 
 .hero-text h1 {
@@ -52,22 +38,52 @@ body{
   opacity: 0.9;
 }
 
+/* CONTACT INTRO BANNER */
+.contact-intro-banner {
+  text-align: center;
+  padding: 60px 20px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-intro-banner h1 {
+  font-size: clamp(26px, 4vw, 38px) !important;
+  color: #0b3a67 !important;
+  font-weight: 700 !important;
+  margin-bottom: 15px !important;
+}
+
+.contact-intro-banner p {
+  font-size: 1.1rem !important;
+  color: #475569 !important;
+  line-height: 1.6 !important;
+}
+
+/* DARK MODE OVERRIDES FOR BANNER */
+body.dark .contact-intro-banner h1 {
+  color: #f1f5f9;
+}
+
+body.dark .contact-intro-banner p {
+  color: #94a3b8;
+}
+
 
 /* ================= ORBIT SYSTEM ================= */
 .orbit {
   position: absolute;
-  width: 160px;
-  height: 160px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   animation: rotateOrbit 12s linear infinite;
 }
 
 .orbit-left {
-  left: 80px;
+  left: 30px;
 }
 
 .orbit-right {
-  right: 80px;
+  right: 30px;
 }
 
 /* center glow */
@@ -435,42 +451,7 @@ body{
   transform: rotate(45deg);
 }
 
-/* ================= FOOTER ================= */
-.footer {
-  background: #001f4d;
-  color: white;
-  padding: 50px 60px 20px;
-}
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.footer h2 {
-  margin-bottom: 10px;
-}
-
-.footer a {
-  display: block;
-  color: #ccc;
-  text-decoration: none;
-  margin: 5px 0;
-  transition: 0.3s;
-}
-
-.footer a:hover {
-  color: #42a5f5;
-  transform: translateX(5px);
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-  opacity: 0.7;
-}
 
 /* ================= FAQ GAMIFICATION ================= */
 
@@ -613,42 +594,7 @@ body{
   left: -50%;
 }
 
-/* ================= LIGHT FOOTER ================= */
-.footer {
-  background: #f4f9ff; /* light blue */
-  color: #001f4d;
-  padding: 50px 60px 20px;
-}
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.footer h2,
-.footer h3 {
-  color: #001f4d;
-}
-
-.footer a {
-  color: #333;
-  text-decoration: none;
-  margin: 5px 0;
-  transition: 0.3s;
-}
-
-.footer a:hover {
-  color: #1e88e5;
-  transform: translateX(5px);
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
-  opacity: 0.6;
-}
 
 .faq-item.active {
   box-shadow: 0 0 15px rgba(66,165,245,0.3);
@@ -720,15 +666,7 @@ body{
   color: #fff;
 }
 
-/* FOOTER */
-.dark .footer {
-  background: #000;
-  color: #fff;
-}
 
-.dark .footer a {
-  color: #ccc;
-}
 
 /* FIX: TEXT VISIBILITY EVERYWHERE */
 .dark p,
@@ -744,6 +682,222 @@ body{
 .hero h1,
 .hero p {
   color: var(--hero-text);
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets and below (768px) */
+@media (max-width: 768px) {
+  
+  /* HERO */
+  .contact-hero {
+    height: 250px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+  }
+  
+  .hero-text h1 {
+    font-size: 28px;
+  }
+  
+  .hero-text p {
+    font-size: 14px;
+  }
+  
+  /* ORBITS */
+  .orbit {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .orbit-left {
+    left: 20px;
+  }
+  
+  .orbit-right {
+    right: 20px;
+  }
+  
+  .orbit-item {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .orbit-center {
+    width: 30px;
+    height: 30px;
+  }
+  
+  /* COMPANY SHOWCASE */
+  .company-showcase {
+    height: 100px;
+  }
+  
+  .company-name {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+  
+  /* CONNECT SECTION */
+  .connect-section {
+    padding: 40px 20px;
+  }
+  
+  .connect-section h2 {
+    font-size: 28px;
+  }
+  
+  .connect-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .connect-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  /* INFO BLOCK */
+  .info-block {
+    padding: 40px 20px;
+  }
+  
+  .info-text {
+    padding: 0 20px;
+  }
+  
+  /* GALLERY */
+  .gallery-section {
+    padding: 40px 20px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  /* FAQ */
+  .faq-section {
+    padding: 60px 20px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .faq-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .faq-question {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  .faq-answer {
+    font-size: 13px;
+    padding: 0 15px;
+  }
+  
+  /* FOOTER */
+  .footer {
+    padding: 40px 20px;
+  }
+  
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer-left,
+  .footer-links,
+  .footer-contact {
+    text-align: center;
+  }
+  
+  .footer-links a {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  
+  .contact-hero {
+    height: 200px;
+  }
+  
+  .hero-text h1 {
+    font-size: 24px;
+  }
+  
+  .hero-text p {
+    font-size: 13px;
+  }
+  
+  .orbit {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .orbit-left {
+    left: 10px;
+  }
+  
+  .orbit-right {
+    right: 10px;
+  }
+  
+  .orbit-item {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  .orbit-center {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .company-name {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .connect-section h2 {
+    font-size: 24px;
+  }
+  
+  .connect-card {
+    padding: 25px;
+  }
+  
+  .connect-card h3 {
+    font-size: 18px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .faq-question {
+    font-size: 13px;
+  }
+  
+  .faq-answer {
+    font-size: 12px;
+  }
+  
+  .theme-toggle {
+    top: 15px;
+    right: 15px;
+    padding: 8px 10px;
+    font-size: 16px;
+  }
 }
 
 /* Light mode text color */

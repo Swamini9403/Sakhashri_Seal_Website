@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Dynamic Seals Image</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            border: 2px solid #333;
+            display: block;
+            margin: 20px auto;
+            background: white;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            background: #1e88e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Dynamic Seals Manufacturing Image Generator</h1>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <button onclick="downloadImage()">Download Image</button>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // Background gradient
+        const gradient = ctx.createLinearGradient(0, 0, 800, 600);
+        gradient.addColorStop(0, '#001f4d');
+        gradient.addColorStop(1, '#1e88e5');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, 800, 600);
+
+        // Add geometric pattern
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.lineWidth = 2;
+        for (let i = 0; i < 10; i++) {
+            ctx.beginPath();
+            ctx.arc(400, 300, 50 + i * 30, 0, Math.PI * 2);
+            ctx.stroke();
+        }
+
+        // Draw seal shapes
+        function drawSeal(x, y, radius, color) {
+            // Outer ring
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Inner ring
+            ctx.beginPath();
+            ctx.arc(x, y, radius * 0.6, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+            ctx.fill();
+
+            // Center circle
+            ctx.beginPath();
+            ctx.arc(x, y, radius * 0.3, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.fill();
+        }
+
+        // Draw multiple seals
+        drawSeal(200, 200, 60, 'rgba(66, 165, 245, 0.8)');
+        drawSeal(600, 200, 60, 'rgba(66, 165, 245, 0.8)');
+        drawSeal(400, 400, 80, 'rgba(30, 136, 229, 0.9)');
+
+        // Add text
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 48px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('DYNAMIC SEAL KITS', 400, 100);
+
+        ctx.font = '24px Arial';
+        ctx.fillText('Precision Engineered for Performance', 400, 550);
+
+        // Add icons/symbols
+        ctx.font = '40px Arial';
+        ctx.fillText('⚙️', 150, 450);
+        ctx.fillText('🔧', 650, 450);
+        ctx.fillText('⚡', 400, 250);
+
+        // Add quality badge
+        ctx.beginPath();
+        ctx.arc(700, 100, 50, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 215, 0, 0.9)';
+        ctx.fill();
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        ctx.fillStyle = '#001f4d';
+        ctx.font = 'bold 16px Arial';
+        ctx.fillText('ISO', 700, 95);
+        ctx.fillText('CERTIFIED', 700, 115);
+
+        function downloadImage() {
+            const link = document.createElement('a');
+            link.download = 'dynamic-seals.jpg';
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.click();
+        }
+    </script>
+</body>
+</html>

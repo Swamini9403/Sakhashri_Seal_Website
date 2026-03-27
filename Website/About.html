@@ -1,159 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us</title>
+  <script src="../Script/console-purge.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
 
-<link rel="stylesheet" href="../Style/About.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Style/About.css">
+  <link rel="stylesheet" href="../Style/navbar.css">
+  <link rel="stylesheet" href="../Style/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
 
-<!-- 🌙 DARK MODE -->
-<div class="theme-toggle" onclick="toggleTheme()">
-  <span id="themeIcon">🌙</span>
-</div>
+  <!-- ===== SHARED NAVBAR ===== -->
+  <nav class="main-navbar">
+    <div class="navbar-inner">
+      <div class="nav-logo"><a href="Homeindex.html"><img src="../assets/images/logo2.jpeg" alt="Logo"><span>Sakhashri Seals Corporation</span></a></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="Homeindex.html">Home</a></li>
+        <li class="active"><a href="About.html">About</a></li>
+        <li class="nav-has-dropdown"><a href="Product.html" class="nav-dropdown-trigger">Products <span
+              class="arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="products/oil-seals.html">Oil Seals <span class="dd-arrow">→</span></a><a
+              href="products/o-ring.html">O Ring <span class="dd-arrow">→</span></a><a href="products/pu-u-seal.html">PU
+              U Seal <span class="dd-arrow">→</span></a><a href="products/rotary-oil-seal.html">Rotary Oil Seal <span
+                class="dd-arrow">→</span></a><a href="products/rod-step-seal.html">Rod Step Seal <span
+                class="dd-arrow">→</span></a><a href="products/pneumatic-seal.html">Pneumatic Seal <span
+                class="dd-arrow">→</span></a><a href="products/mechanical-seal.html">Mechanical Seal <span
+                class="dd-arrow">→</span></a><a href="products/piston-glyd-ring.html">Piston Glyd Ring <span
+                class="dd-arrow">→</span></a><a href="products/hydraulic-cylinder-seal-kit.html">Hydraulic Cylinder Seal
+              Kit <span class="dd-arrow">→</span></a><a href="products/chevron-packing-seal.html">Chevron Packing Seal
+              <span class="dd-arrow">→</span></a><a href="products/wiper-dust-seal.html">Wiper Dust Seals <span
+                class="dd-arrow">→</span></a><a href="products/dowty-bonded-seal.html">Dowty Bonded Seals <span
+                class="dd-arrow">→</span></a>
+          </div>
+        </li>
+        <li><a href="productgallery.html">Gallery</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+      <div style="display:flex;gap:10px;align-items:center;"><button class="theme-btn" id="themeToggleNav">🌙</button>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </nav>
 
-<section class="hero">
+  <!-- 🌙 DARK MODE -->
+  <div class="theme-toggle" onclick="toggleTheme()">
+    <span id="themeIcon">🌙</span>
+  </div>
 
-  <div class="hero-content">
+  <section class="hero">
 
-    <!-- LEFT IMAGE -->
-    <div class="hero-img">
-      <img src="../assets/images/ss.jpeg" alt="Company Image">
+    <div class="hero-content">
+
+      <!-- LEFT IMAGE -->
+      <div class="hero-img">
+        <img src="../assets/images/ss.jpeg" alt="Company Image">
+      </div>
+
+      <!-- RIGHT TEXT -->
+      <h1>About <span>Sakhashri Seals Corporation</span></h1>
+
     </div>
 
-    <!-- RIGHT TEXT -->
-    <h1>About <span>Sakhashri Seals</span></h1>
+  </section>
 
-  </div>
+  <!-- 🔷 DIAGONAL SECTION -->
+  <section class="about-diagonal">
 
-</section>
-
-<!-- 🔷 DIAGONAL SECTION -->
-<section class="about-diagonal">
-
-  <div class="about-text">
-    <h2>ABOUT US</h2>
-    <ul>
-      <li>High-performance hydraulic seal kits</li>
-      <li>Engineered for extreme pressure</li>
-      <li>Advanced PTFE & Polyurethane</li>
-      <li>Leak-proof & long-lasting</li>
-      <li>Used in heavy machinery worldwide</li>
-    </ul>
-  </div>
-
- <div class="tech-orbit">
-
-  <div class="core"></div>
-
-  <div class="orbit orbit1">
-    <div class="orbit-item">⚙️</div>
-    <div class="orbit-item">🔩</div>
-  </div>
-
-  <div class="orbit orbit2">
-    <div class="orbit-item">🧪</div>
-    <div class="orbit-item">🏭</div>
-  </div>
-
-</div>
-
-</section>
-
-<!-- 🔵 INFO BLOCK -->
-<section class="info-block">
-
-  <div class="info-wrapper">
-
-    <div class="info-card">
-      <div class="icon">⚙️</div>
-      <h3>Why Choose Us</h3>
-      <p>Precision engineering, durable materials, and trusted performance across industries.</p>
+    <div class="about-text">
+      <h2>ABOUT US</h2>
+      <ul>
+        <li>High-performance hydraulic seal kits</li>
+        <li>Engineered for extreme pressure</li>
+        <li>Advanced PTFE & Polyurethane</li>
+        <li>Leak-proof & long-lasting</li>
+        <li>Used in heavy machinery worldwide</li>
+      </ul>
     </div>
 
-    <div class="info-card">
-      <div class="icon">🚀</div>
-      <h3>Our Strength</h3>
-      <p>Reliable sealing solutions with reduced maintenance and high efficiency.</p>
+    <div class="tech-orbit">
+
+      <div class="core"></div>
+
+      <div class="orbit orbit1">
+        <div class="orbit-item">⚙️</div>
+        <div class="orbit-item">🔩</div>
+      </div>
+
+      <div class="orbit orbit2">
+        <div class="orbit-item">🧪</div>
+        <div class="orbit-item">🏭</div>
+      </div>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- 🔵 INFO BLOCK -->
+  <section class="info-block">
 
-<!-- 🏆 CERT -->
-<section class="certifications">
-  <h2 class="cert-title">Achievements & Products</h2>
+    <div class="info-wrapper">
 
-  <div class="cert-row">
-    <div class="cert-vertical"><img src="../assets/images/certificate.jpg"></div>
-    <div class="cert-vertical"><img src="../assets/images/kit.jpg"></div>
-    <div class="cert-vertical"><img src="../assets/images/seal-kit.png"></div>
-    <div class="cert-vertical"><img src="../assets/images/new.jpeg"></div>
-  </div>
-</section>
+      <div class="info-card">
+        <div class="icon">⚙️</div>
+        <h3>Why Choose Us</h3>
+        <p>Precision engineering, durable materials, and trusted performance across industries.</p>
+      </div>
 
-<!-- 📘 ABOUT DETAILS SECTION -->
-<section class="about-details">
+      <div class="info-card">
+        <div class="icon">🚀</div>
+        <h3>Our Strength</h3>
+        <p>Reliable sealing solutions with reduced maintenance and high efficiency.</p>
+      </div>
 
-  <div class="about-details-container">
-
-    <!-- LEFT TEXT -->
-    <div class="about-details-text">
-      <h2>About Our Company</h2>
-
-      <p>
-        Sakhashri Seals Corporation is a trusted name in the field of industrial sealing
-        solutions, delivering high-performance products designed to withstand extreme
-        operating conditions. With a strong focus on precision engineering and quality
-        materials, we ensure reliability and durability across all applications.
-      </p>
-
-      <p>
-        Our expertise lies in manufacturing advanced hydraulic seal kits using premium
-        materials such as PTFE and Polyurethane. These products are engineered to provide
-        superior resistance against pressure, wear, and environmental factors, making them
-        ideal for heavy machinery and industrial systems.
-      </p>
-
-      <p>
-        We are committed to innovation, customer satisfaction, and long-term performance.
-        Our solutions not only enhance operational efficiency but also reduce maintenance
-        costs, making us a preferred partner for industries worldwide.
-      </p>
     </div>
 
-    <!-- RIGHT IMAGE -->
-    <div class="about-details-img">
-      <img src="../assets/images/cutseals.png" alt="About Company">
+  </section>
+
+  <!-- 🏆 CERT -->
+  <section class="certifications">
+    <h2 class="cert-title">Achievements & Products</h2>
+
+    <div class="cert-row">
+      <div class="cert-vertical"><img src="../assets/images/certificate.jpg"></div>
+      <div class="cert-vertical"><img src="../assets/images/kit.jpg"></div>
+      <div class="cert-vertical"><img src="../assets/images/seal-kit.png"></div>
+      <div class="cert-vertical"><img src="../assets/images/new.jpeg"></div>
+    </div>
+  </section>
+
+  <!-- 📘 ABOUT DETAILS SECTION -->
+  <section class="about-details">
+
+    <div class="about-details-container">
+
+      <!-- LEFT TEXT -->
+      <div class="about-details-text">
+        <h2>About Our Company</h2>
+
+        <p>
+          Sakhashri Seals Corporation is a trusted name in the field of industrial sealing
+          solutions, delivering high-performance products designed to withstand extreme
+          operating conditions. With a strong focus on precision engineering and quality
+          materials, we ensure reliability and durability across all applications.
+        </p>
+
+        <p>
+          Our expertise lies in manufacturing advanced hydraulic seal kits using premium
+          materials such as PTFE and Polyurethane. These products are engineered to provide
+          superior resistance against pressure, wear, and environmental factors, making them
+          ideal for heavy machinery and industrial systems.
+        </p>
+
+        <p>
+          We are committed to innovation, customer satisfaction, and long-term performance.
+          Our solutions not only enhance operational efficiency but also reduce maintenance
+          costs, making us a preferred partner for industries worldwide.
+        </p>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="about-details-img">
+        <img src="../assets/images/cutseals.png" alt="About Company">
+      </div>
+
     </div>
 
-  </div>
+  </section>
 
-</section>
+  <!-- ================= FOOTER ================= -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      
+      <!-- COLUMN 1: QUICK LINKS -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-list">
+          <li><a href="Homeindex.html">Home</a></li>
+          <li><a href="About.html">About Us</a></li>
+          <li><a href="Product.html">Products</a></li>
+          <li><a href="productgallery.html">Gallery</a></li>
+          <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+      </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <h3>Sakhashri Seals Corporation</h3>
-  <p>Engineering durability. Delivering precision.</p>
+      <!-- COLUMN 2: PRODUCTS -->
+      <div class="footer-col">
+        <h3>Products</h3>
+        <ul class="footer-list">
+          <li><a href="products/rod-step-seal.html">Rod Step Seal</a></li>
+          <li><a href="products/pneumatic-seal.html">Pneumatic Seal</a></li>
+          <li><a href="products/mechanical-seal.html">Mechanical Seal</a></li>
+          <li><a href="products/piston-glyd-ring.html">Piston Glyd Ring</a></li>
+          <li><a href="products/hydraulic-cylinder-seal-kit.html">Hydraulic Cylinder Seal Kit</a></li>
+        </ul>
+      </div>
 
-  <div class="footer-links">
-    <a href="Homeindex.html">Home</a>
-    <a href="About.html">About</a>
-    <a href="Product.html">Products</a>
-    <a href="Contact.html">Contact</a>
-  </div>
+      <!-- COLUMN 3: GET IN TOUCH -->
+      <div class="footer-col">
+        <h3>Get In Touch</h3>
+        <ul class="footer-list contact-list">
+          <li>
+            <i class="fas fa-building"></i>
+            <span>Sakhashri Seals Corporation</span>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <a href="tel:+918087594463">+91 80875 94463</a><br>
+              <a href="tel:+919049158088">+91 90491 58088</a><br>
+              <a href="tel:+917387595888">+91 73875 95888</a>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:sakhashriseals@gmail.com">sakhashriseals@gmail.com</a>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>
+              Gat No 680, Sonigara Corner,<br>
+              Near Prem Sagar Sweet, Landewadi,<br>
+              Bhosari, Pune - 411039, MH, India
+            </span>
+          </li>
+        </ul>
+      </div>
 
-  <p class="copyright">© 2026 All Rights Reserved</p>
-</footer>
+    </div>
 
-<script src="../Script/About.js"></script>
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+      <div class="social-links footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61565062592459&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/dynamic_seal_kit?igsh=dHRqamY3Njk3NHN4" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/918087594463" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      
+      <p>© 2026 Sakhashri Seals Corporation. All rights reserved.</p>
+      
+      <div class="footer-legal-links">
+        <a href="Policy.html#privacy">Privacy Policy</a>
+        <a href="Policy.html#terms">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../Script/About.js"></script>
+  <script src="../Script/navbar.js"></script>
 </body>
+
 </html>

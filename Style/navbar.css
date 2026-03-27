@@ -1,0 +1,319 @@
+/* ============================================================
+   SHARED NAVBAR — Sakhashri Seals Corporation
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #0077b6;
+    --primary-dark: #005f92;
+    --accent: #00b4d8;
+    --text: #1e293b;
+    --bg: #ffffff;
+    --nav-bg: #ffffff;
+    --nav-shadow: 0 2px 18px rgba(0, 0, 0, 0.10);
+    --dropdown-bg: #0077b6;
+    --dropdown-hover: #005f92;
+    --footer-bg: #0a1628;
+}
+
+body.dark {
+    --text: #e2e8f0;
+    --bg: #0f172a;
+    --nav-bg: #0f172a;
+    --nav-shadow: 0 2px 18px rgba(0, 0, 0, 0.40);
+}
+
+/* ===== MAIN NAVBAR ===== */
+.main-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: var(--nav-bg);
+    box-shadow: var(--nav-shadow);
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s;
+}
+
+.navbar-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+}
+
+/* ===== LOGO ===== */
+.nav-logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.nav-logo img {
+    height: 48px;
+    width: 48px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.nav-logo span {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.3px;
+}
+
+/* ===== NAV LINKS ===== */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    list-style: none;
+}
+
+.nav-links>li {
+    position: relative;
+}
+
+.nav-links>li>a,
+.nav-links>li>.nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: var(--text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    background: none;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    white-space: nowrap;
+}
+
+.nav-links>li>a:hover,
+.nav-links>li>.nav-dropdown-trigger:hover,
+.nav-links>li.active>a {
+    background: #e6f3fd;
+    color: var(--primary);
+}
+
+body.dark .nav-links>li>a:hover,
+body.dark .nav-links>li>.nav-dropdown-trigger:hover {
+    background: rgba(0, 119, 182, 0.2);
+    color: var(--accent);
+}
+
+/* Dropdown arrow icon */
+.nav-dropdown-trigger .arrow {
+    font-size: 0.7rem;
+    transition: transform 0.25s;
+}
+
+.nav-links>li.open>.nav-dropdown-trigger .arrow {
+    transform: rotate(180deg);
+}
+
+/* ===== DROPDOWN MENU ===== */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 240px;
+    background: var(--dropdown-bg);
+    border-radius: 10px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+    padding: 8px 0;
+    z-index: 9999;
+    animation: dropIn 0.22s ease;
+}
+
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 22px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--dropdown-bg);
+}
+
+@keyframes dropIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-links>li.open>.dropdown-menu {
+    display: block;
+}
+
+/* Desktop Hover */
+@media (min-width: 901px) {
+    .nav-has-dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    .nav-has-dropdown:hover .nav-dropdown-trigger .arrow {
+        transform: rotate(180deg);
+    }
+}
+
+.dropdown-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px 22px;
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background 0.18s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+    background: var(--dropdown-hover);
+    padding-left: 28px;
+}
+
+.dropdown-menu a .dd-arrow {
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-btn {
+    background: none;
+    border: 1.5px solid #d1d5db;
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: var(--text);
+    transition: all 0.2s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.theme-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+/* ===== HAMBURGER (MOBILE) ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2.5px;
+    background: var(--text);
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 0 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links>li>a,
+    .nav-links>li>.nav-dropdown-trigger {
+        border-radius: 0;
+        padding: 12px 24px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        border-radius: 0;
+        background: #005f92;
+        padding: 0;
+        animation: none;
+    }
+
+    .dropdown-menu::before {
+        display: none;
+    }
+
+    .dropdown-menu a {
+        padding: 10px 36px;
+        font-size: 0.85rem;
+    }
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    background: #25d366;
+    color: #fff;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+    z-index: 9990;
+    transition: transform 0.2s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}

@@ -479,61 +479,7 @@ body{
   margin: 8px 0;
 }
 
-/* ===== FOOTER ===== */
-.footer {
-  background: #0a2540;
-  color: white;
-  padding: 50px 10% 20px;
-}
 
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.footer-col {
-  flex: 1;
-  min-width: 200px;
-}
-
-.footer-col h3,
-.footer-col h4 {
-  margin-bottom: 15px;
-}
-
-.footer-col p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-col ul li {
-  margin: 8px 0;
-}
-
-.footer-col ul li a {
-  color: #ccc;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.footer-col ul li a:hover {
-  color: #00c3ff;
-}
-
-.footer-bottom {
-  text-align: center;
-  margin-top: 30px;
-  border-top: 1px solid #1e3a5f;
-  padding-top: 15px;
-  font-size: 13px;
-}
 
 #fullDesc {
   margin-top: 20px;

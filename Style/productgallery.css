@@ -20,13 +20,14 @@ body{
 .hero-heading{
   display:flex;
   align-items:center;
-  gap:20px;              /* spacing between words */
-  flex-wrap:nowrap;      /* ❗ prevents going to next line */
-  white-space:nowrap;    /* ❗ forces single line */
-  font-size:42px;
+  justify-content: center;
+  gap:15px;
+  flex-wrap:wrap;
+  font-size: clamp(24px, 5vw, 42px);
   font-weight:700;
-  margin-left:200px;
-  margin-top: 60px;
+  margin: 60px auto 30px;
+  max-width: 90%;
+  text-align: center;
 }
 
 /* styling each part */
@@ -234,28 +235,28 @@ body.dark #search{
   justify-content:space-between;
   padding:60px 10%;
   position:relative;
-}
-
-.hero{
   margin-top:40px;
+  gap:50px;
 }
 
 /* Shape */
 .hero-shape{
   position:absolute;
-  left:-40px;
-  top:50px;
-  width:500px;
-  height:500px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(80vw, 500px);
+  height: min(80vw, 500px);
   background:linear-gradient(135deg,#1e3c72,#2a5298);
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   color:white;
-  font-size:60px;
+  font-size: 60px;
   font-weight:bold;
-  opacity:0.15;
+  opacity:0.1;
+  pointer-events: none;
 }
 
 .hero-content{
@@ -292,19 +293,16 @@ body.dark .cta{
   color:#0b1f3a;
 }
 
-.hero-video video{
-  width:800px;       /* smaller width */
-  height:450px;      /* bigger height = vertical */
-  object-fit:cover;  /* fills nicely */
+.hero-video video,
+.video-wrapper video {
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  object-fit:cover;
   box-shadow:0 20px 40px rgba(0,0,0,0.15);
-  margin-left: 100px;
-  }
-.hero{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:50px; /* spacing instead of margin */
+  border-radius: 12px;
 }
+
 
 .video-wrapper video{
   border-radius: inherit;
@@ -394,13 +392,7 @@ body.dark .card-front{
   background:#1e2f4d;
 }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:40px;
-  background:#0b1f3a;
-  color:white;
-}
+
 
 body.dark footer{
   background:#000;
@@ -718,6 +710,247 @@ body.dark .popup-content{
 /* EXTRA: description text */
 body.dark .popup-content p{
   color:#dbe8ff;          /* soft readable text */
+}
+
+/* ================= ENHANCED RESPONSIVE DESIGN ================= */
+
+/* Tablets and below (768px) */
+@media (max-width: 768px) {
+  
+  /* TOP BAR */
+  .top-bar {
+    top: 15px;
+    right: 15px;
+  }
+  
+  /* TITLE SECTION */
+  .title-section {
+    margin-top: 30px;
+  }
+  
+  .hero-title-shape {
+    font-size: 18px;
+    padding: 15px 35px;
+  }
+  
+  #search {
+    width: 90%;
+    max-width: 320px;
+  }
+  
+  /* HERO HEADING */
+  .hero-heading {
+    font-size: 28px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    white-space: normal;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  /* HERO SECTION */
+  .hero {
+    flex-direction: column;
+    padding: 40px 10%;
+    gap: 30px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-shape {
+    opacity: 0.08;
+  }
+  
+  .hero-content {
+    order: 1; /* Content first */
+  }
+
+  .video-wrapper {
+    order: 2;
+    width: 100%;
+    margin: 0;
+  }
+
+  .hero-video video,
+  .video-wrapper video {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    margin-left: 0;
+  }
+  /* HERO EXTRA */
+  .hero-extra {
+    padding: 40px 20px;
+    gap: 20px;
+  }
+  
+  .extra-card {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  /* GALLERY TITLE */
+  .gallery-title {
+    margin: 40px 0 20px;
+  }
+  
+  .gallery-title h2 {
+    font-size: 32px;
+  }
+  
+  /* PRODUCTS GRID */
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 30px 20px;
+  }
+  
+  .card-inner {
+    height: 250px;
+  }
+  
+  .card-front h3 {
+    font-size: 14px;
+  }
+  
+  /* POPUP */
+  .popup-content {
+    width: 85%;
+    padding: 25px;
+  }
+  
+  .popup-close {
+    top: 15px;
+    right: 20px;
+    font-size: 25px;
+  }
+  
+
+}
+
+/* Hide video on small screens (600px and below) */
+@media (max-width: 600px) {
+  .hero-video,
+  .video-wrapper {
+    display: none !important;
+  }
+  .hero {
+    padding-top: 20px;
+    min-height: 400px;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  
+  .hero-heading {
+    font-size: 22px;
+    margin-left: 10px;
+    margin-top: 30px;
+  }
+  
+  .hero-title-shape {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+  
+  #search {
+    width: 95%;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  .hero {
+    padding: 30px 15px;
+  }
+  
+  .hero-shape {
+    width: 250px;
+    height: 250px;
+    font-size: 30px;
+  }
+  
+  .hero-content h2 {
+    font-size: 24px;
+  }
+  
+  .hero-content p {
+    font-size: 13px;
+  }
+  
+  .cta,
+  a.explore-btn {
+    width: 140px;
+    height: 38px;
+    font-size: 14px;
+  }
+  
+  .hero-video,
+  .video-wrapper {
+    display: none !important;
+  }
+  
+  .hero-extra {
+    padding: 30px 15px;
+  }
+  
+  .extra-card {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .extra-card h3 {
+    font-size: 18px;
+  }
+  
+  .extra-card p {
+    font-size: 13px;
+  }
+  
+  .gallery-title h2 {
+    font-size: 28px;
+  }
+  
+  .gallery-title p {
+    font-size: 13px;
+  }
+  
+  .products {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 20px 15px;
+  }
+  
+  .card-inner {
+    height: 280px;
+  }
+  
+  .card-front h3 {
+    font-size: 15px;
+    padding: 8px;
+  }
+  
+  .card-back p {
+    font-size: 13px;
+    padding: 10px;
+  }
+  
+  .popup-content {
+    width: 90%;
+    padding: 20px;
+  }
+  
+  .popup-content h3 {
+    font-size: 18px;
+  }
+  
+  .popup-content p {
+    font-size: 13px;
+  }
+  
+
 }
 
 /* Size adjustment for small Explore Products box */

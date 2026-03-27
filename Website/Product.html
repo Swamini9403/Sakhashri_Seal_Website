@@ -1,220 +1,700 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Products</title>
 
-  <link rel="stylesheet" href="../Style/Product.css">
-  <button id="themeToggle" class="theme-btn">🌙</button>
-  
-  <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<head>
+  <script src="../Script/console-purge.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products | Sakhashri Seals Corporation – Industrial Sealing Solutions Pune</title>
+  <meta name="description"
+    content="Browse all 12 industrial sealing products from Sakhashri Seals Corporation, Pune – Oil Seals, O Rings, Hydraulic Kits, Mechanical Seals and more.">
+
+  <link rel="stylesheet" href="../Style/navbar.css">
+  <link rel="stylesheet" href="../Style/footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4f9;
+      color: #1a1a2e;
+    }
+
+    /* ── HERO BANNER ── */
+    .products-hero {
+      background: linear-gradient(135deg, #0a2540 0%, #143764 60%, #1a6fa8 100%);
+      padding: 80px 5% 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .products-hero::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 195, 255, 0.15), transparent 70%);
+      top: -150px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .products-hero::after {
+      content: '';
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(0, 195, 255, 0.10), transparent 70%);
+      bottom: -100px;
+      left: -80px;
+      border-radius: 50%;
+    }
+
+    .products-hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .products-hero h1 span {
+      color: #00c3ff;
+    }
+
+    .products-hero p {
+      color: rgba(255, 255, 255, 0.80);
+      font-size: 16px;
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── INTRO STRIP ── */
+    .intro-strip {
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      padding: 30px 5%;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      flex-wrap: wrap;
+    }
+
+    .intro-stat {
+      text-align: center;
+    }
+
+    .intro-stat strong {
+      display: block;
+      font-size: 28px;
+      font-weight: 700;
+      color: #143764;
+    }
+
+    .intro-stat span {
+      font-size: 13px;
+      color: #666;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      text-align: center;
+      padding: 60px 5% 30px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 700;
+      color: #0a2540;
+    }
+
+    .section-header h2 span {
+      color: #0a7abf;
+    }
+
+    .section-header p {
+      color: #555;
+      margin-top: 10px;
+      font-size: 15px;
+      max-width: 600px;
+      margin-inline: auto;
+    }
+
+    .section-underline {
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, #00c3ff, #0a7abf);
+      border-radius: 4px;
+      margin: 14px auto 0;
+    }
+
+    /* ── PRODUCT GRID ── */
+    .products-grid-section {
+      padding: 10px 5% 80px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    /* ── PRODUCT CARD ── */
+    .product-card {
+      background: #fff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.32s ease, box-shadow 0.32s ease;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid transparent;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 48px rgba(0, 122, 191, 0.22);
+      border-color: #00c3ff;
+    }
+
+    /* accent bar at top of card on hover */
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00c3ff, #0a7abf);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.32s ease;
+      z-index: 2;
+    }
+
+    .product-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* IMAGE AREA */
+    .card-img-wrap {
+      background: linear-gradient(135deg, #eef4fb, #dceeff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .card-img-wrap img {
+      max-height: 160px;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform 0.38s ease;
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.12));
+    }
+
+    .product-card:hover .card-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    /* BODY */
+    .card-body {
+      padding: 22px 22px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-category {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #0a7abf;
+      margin-bottom: 6px;
+    }
+
+    .card-body h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0a2540;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .card-body p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    /* CTA BUTTON */
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 18px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #143764, #0a7abf);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      text-decoration: none;
+      align-self: flex-start;
+    }
+
+    .card-cta i {
+      font-size: 12px;
+      transition: transform 0.25s ease;
+    }
+
+    .product-card:hover .card-cta {
+      background: linear-gradient(135deg, #00c3ff, #0a7abf);
+    }
+
+    .product-card:hover .card-cta i {
+      transform: translateX(4px);
+    }
+
+    /* ── FEATURES STRIP ── */
+    .features-strip {
+      background: linear-gradient(135deg, #0a2540, #143764);
+      padding: 50px 5%;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .feat-box {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 28px 30px;
+      text-align: center;
+      color: #fff;
+      width: 200px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .feat-box:hover {
+      background: rgba(0, 195, 255, 0.15);
+      transform: translateY(-6px);
+    }
+
+    .feat-box i {
+      font-size: 28px;
+      color: #00c3ff;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .feat-box h4 {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .feat-box p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.65);
+      margin-top: 6px;
+    }
+
+
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #25d366;
+      color: #fff;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+      z-index: 9999;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:600px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-strip {
+        gap: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <h1>Our Products</h1>
-  <p>Explore our advanced sealing solutions</p>
-</section>
-
-<!-- FLOATING SHAPES -->
-<div class="floating-shapes">
-  <span></span><span></span><span></span><span></span>
-</div>
-
-<!-- INTRO -->
-<section class="intro-glass">
-  <h2>Advanced Sealing Solutions</h2>
-  <p> At Sakhashri Seals Corporation, we specialize in delivering high-performance sealing solutions engineered for precision, durability, and efficiency. Our products are designed to perform under extreme industrial conditions while ensuring long service life. </p> 
-  <p> With a commitment to innovation and quality, we provide a wide range of sealing components including rod seals, piston seals, and pneumatic seals. Each product is crafted using advanced materials and modern manufacturing techniques. </p>
-</section>
-
-<!-- FEATURES -->
-<section class="features-advanced">
-  <div class="feature-card"><h3>High Durability</h3></div>
-  <div class="feature-card"><h3>Precision Design</h3></div>
-  <div class="feature-card"><h3>Custom Solutions</h3></div>
-  <div class="feature-card"><h3>Wide Applications</h3></div>
-</section>
-
-<!-- ===== STATS SECTION ===== -->
-<section class="stats-section">
-
-  <div class="stats-container">
-
-    <div class="stat-box">
-      <h2 class="counter">500+</h2>
-      <p>Products</p>
-    </div>
-
-    <div class="stat-box">
-      <h2 class="counter">500+</h2>
-      <p>Clients</p>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- PRODUCT GRID -->
-<section class="product-section">
-
-  <h2 class="section-title">Our Products</h2>
-
-  <div class="product-grid">
-
-    <div class="product-card" onclick="openProductPage('Rod Seals')">
-      <img src="../assets/images/rod.png">
-      <h3>Rod Seals</h3>
-      <button>View Product</button>
-    </div>
-
-    <div class="product-card" onclick="openProductPage('Piston Seals')">
-      <img src="../assets/images/piston.png">
-      <h3>Piston Seals</h3>
-      <button>View Product</button>
-    </div>
-
-    <div class="product-card" onclick="openProductPage('Wiper Seals')">
-      <img src="../assets/images/wiper.png">
-      <h3>Wiper Seals</h3>
-      <button>View Product</button>
-    </div>
-
-    <div class="product-card" onclick="openProductPage('Rotary Seals')">
-      <img src="../assets/images/rotary.png">
-      <h3>Rotary Seals</h3>
-      <button>View Product</button>
-    </div>
-
-    <div class="product-card" onclick="openProductPage('Pneumatic Seals')">
-      <img src="../assets/images/pneumatic.avif">
-      <h3>Pneumatic Seals</h3>
-      <button>View Product</button>
-    </div>
-
-    <div class="product-card" onclick="openProductPage('Guide Rings')">
-      <img src="../assets/images/guide.jpg">
-      <h3>Guide Rings</h3>
-      <button>View Product</button>
-    </div>
-
-    <div class="product-card" onclick="openProductPage('O Rings')">
-      <img src="../assets/images/o.png">
-      <h3>O Rings</h3>
-      <button>View Product</button>
-    </div>
-
-    <div class="product-card" onclick="openProductPage('Symmetric Seals')">
-      <img src="../assets/images/smm.png">
-      <h3>Symmetric Seals</h3>
-      <button>View Product</button>
-    </div>
-
-    <div class="product-card" onclick="openProductPage('Cushion Seals')">
-      <img src="../assets/images/cushion.png">
-      <h3>Cushion Seals</h3>
-      <button>View Product</button>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== FULL SCREEN PRODUCT PAGE ===== -->
-<div class="product-full" id="productPage">
-
-  <div class="product-container">
-
-    <!-- SIDEBAR -->
-    <div class="product-sidebar">
-      <h2>Explore</h2>
-      <ul id="menuList">
-        <li data-name="Rod Seals">Rod Seals</li>
-<li data-name="Piston Seals">Piston Seals</li>
-<li data-name="Wiper Seals">Wiper Seals</li>
-<li data-name="Rotary Seals">Rotary Seals</li>
-<li data-name="Pneumatic Seals">Pneumatic Seals</li>
-<li data-name="Guide Rings">Guide Rings</li>
-<li data-name="O Rings">O Rings</li>
-<li data-name="Symmetric Seals">Symmetric Seals</li>
-<li data-name="Cushion Seals">Cushion Seals</li>       
-      </ul>
-    </div>
-
-    <!-- CONTENT -->
-    <div class="product-content">
-
-      <span class="close-btn" onclick="closeProductPage()">×</span>
-
-      <h1 id="fullTitle">Product Name</h1>
-
-      <div class="product-main">
-
-  <div class="left">
-    <img id="fullImage" src="../assets/images/seal-kit.png">
-  </div>
-
-  <div class="right">
-    <div id="fullDesc"></div>
-  </div>
-
-</div>
-  <div class="features">
-  <div class="feature-pill">✔ High durability</div>
-  <div class="feature-pill">✔ Long service life</div>
-  <div class="feature-pill">✔ Precision engineered</div>
-</div>
-</div>
-
-  </div>
-</div>
-
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-
-  <div class="footer-container">
-
-    <!-- COMPANY -->
-    <div class="footer-col">
-      <h3>Sakhashri Seals</h3>
-      <p>
-        We provide high-quality sealing solutions designed for durability, precision, 
-        and performance in industrial applications.
-      </p>
-    </div>
-
-    <!-- LINKS -->
-    <div class="footer-col">
-      <h4>Quick Links</h4>
-      <ul>
+  <!-- ===== SHARED NAVBAR ===== -->
+  <nav class="main-navbar">
+    <div class="navbar-inner">
+      <div class="nav-logo">
+        <a href="Homeindex.html">
+          <img src="../assets/images/logo2.jpeg" alt="Sakhashri Seals Corporation Logo">
+          <span>Sakhashri Seals Corporation</span>
+        </a>
+      </div>
+      <ul class="nav-links" id="navLinks">
         <li><a href="Homeindex.html">Home</a></li>
-        <li><a href="About.html">Products</a></li>
-        <li><a href="Product.html">About</a></li>
+        <li><a href="About.html">About</a></li>
+        <li class="active nav-has-dropdown">
+          <a href="Product.html" class="nav-dropdown-trigger">Products <span class="arrow">▼</span></a>
+          <div class="dropdown-menu">
+            <a href="products/oil-seals.html">Oil Seals <span class="dd-arrow">→</span></a>
+            <a href="products/o-ring.html">O Ring <span class="dd-arrow">→</span></a>
+            <a href="products/pu-u-seal.html">PU U Seal <span class="dd-arrow">→</span></a>
+            <a href="products/rotary-oil-seal.html">Rotary Oil Seal <span class="dd-arrow">→</span></a>
+            <a href="products/rod-step-seal.html">Rod Step Seal <span class="dd-arrow">→</span></a>
+            <a href="products/pneumatic-seal.html">Pneumatic Seal <span class="dd-arrow">→</span></a>
+            <a href="products/mechanical-seal.html">Mechanical Seal <span class="dd-arrow">→</span></a>
+            <a href="products/piston-glyd-ring.html">Piston Glyd Ring <span class="dd-arrow">→</span></a>
+            <a href="products/hydraulic-cylinder-seal-kit.html">Hydraulic Cylinder Seal Kit <span
+                class="dd-arrow">→</span></a>
+            <a href="products/chevron-packing-seal.html">Chevron Packing Seal <span class="dd-arrow">→</span></a>
+            <a href="products/wiper-dust-seal.html">Wiper Dust Seals <span class="dd-arrow">→</span></a>
+            <a href="products/dowty-bonded-seal.html">Dowty Bonded Seals <span class="dd-arrow">→</span></a>
+          </div>
+        </li>
+        <li><a href="productgallery.html">Gallery</a></li>
         <li><a href="Contact.html">Contact</a></li>
       </ul>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <button class="theme-btn" id="themeToggleNav">🌙</button>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
     </div>
+  </nav>
 
-    <!-- CONTACT -->
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p>Email: sakhashriseals@gmail.com</p>
-      <p>Phone: +91 8087594463</p>
-      <p>Location: Shreya Seals, Sonigara Corner, Landewadi Chowk, Bhosari, Pune - 411039</p>
-    </div>
+  <!-- ===== HERO ===== -->
+  <section class="products-hero">
+    <h1>Our <span>Sealing Solutions</span></h1>
+    <p>12 premium industrial sealing products — engineered for durability, precision & performance</p>
+  </section>
 
+  <!-- ===== INTRO STATS ===== -->
+  <div class="intro-strip">
+    <div class="intro-stat"><strong>12</strong><span>Product Categories</span></div>
+    <div class="intro-stat"><strong>500+</strong><span>Happy Clients</span></div>
+    <div class="intro-stat"><strong>Pan India</strong><span>Supply Network</span></div>
+    <div class="intro-stat"><strong>ISO</strong><span>Quality Certified</span></div>
   </div>
 
-  <div class="footer-bottom">
-    <p>© 2026 Sakhashri Seals Corporation. All Rights Reserved.</p>
-  </div>
+  <!-- ===== PRODUCT GRID ===== -->
+  <section class="products-grid-section">
+    <div class="section-header">
+      <h2>Browse <span>All Products</span></h2>
+      <p>Click on any product card to view complete specifications, materials, and applications</p>
+      <div class="section-underline"></div>
+    </div>
 
-</footer>
+    <div class="product-grid">
 
-<script src="../Script/Product.js"></script>
+      <!-- 1. Oil Seals -->
+      <a class="product-card" href="products/oil-seals.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/oil_seals.png" alt="Oil Seals">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Rotary Sealing</div>
+          <h3>Oil Seals</h3>
+          <p>Rubber & metal-cased oil seals for rotating shafts in gearboxes, pumps and engines.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
 
+      <!-- 2. O Ring -->
+      <a class="product-card" href="products/o-ring.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/o_ring.png" alt="O Ring">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Static & Dynamic</div>
+          <h3>O Ring</h3>
+          <p>NBR, EPDM, Viton O-rings for hydraulic, pneumatic and chemical sealing applications.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 3. PU U Seal -->
+      <a class="product-card" href="products/pu-u-seal.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/pu_u_seal.png" alt="PU U Seal">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Rod & Piston</div>
+          <h3>PU U Seal</h3>
+          <p>Polyurethane U-cup seals for single-acting hydraulic cylinders with excellent wear resistance.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 4. Rotary Oil Seal -->
+      <a class="product-card" href="products/rotary-oil-seal.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/rotary_oil_seal.png" alt="Rotary Oil Seal">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Rotary Sealing</div>
+          <h3>Rotary Oil Seal</h3>
+          <p>High-speed lip seals for rotating shafts — retain lubricant and exclude contaminants.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 5. Rod Step Seal -->
+      <a class="product-card" href="products/rod-step-seal.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/rod_step_seal.png" alt="Rod Step Seal">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Hydraulic Rod</div>
+          <h3>Rod Step Seal</h3>
+          <p>PTFE-filled composite step seals for hydraulic rod sealing under high-pressure conditions.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 6. Pneumatic Seal -->
+      <a class="product-card" href="products/pneumatic-seal.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/pneumatic_seal.png" alt="Pneumatic Seal">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Pneumatic</div>
+          <h3>Pneumatic Seal</h3>
+          <p>Low-friction seals for pneumatic cylinders and actuators requiring precise air-tight sealing.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 7. Mechanical Seal -->
+      <a class="product-card" href="products/mechanical-seal.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/mechanical_seal.png" alt="Mechanical Seal">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Industrial</div>
+          <h3>Mechanical Seal</h3>
+          <p>Single & double mechanical seals for pumps, compressors and agitators handling fluids.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 8. Piston Glyd Ring -->
+      <a class="product-card" href="products/piston-glyd-ring.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/piston_glyd_ring.png" alt="Piston Glyd Ring">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Piston Sealing</div>
+          <h3>Piston Glyd Ring</h3>
+          <p>PTFE + rubber energised double-acting piston seals for heavy-duty hydraulic cylinders.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 9. Hydraulic Cylinder Seal Kit -->
+      <a class="product-card" href="products/hydraulic-cylinder-seal-kit.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/hydraulic_cylinder_seal_kit.png" alt="Hydraulic Cylinder Seal Kit">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Complete Kit</div>
+          <h3>Hydraulic Cylinder Seal Kit</h3>
+          <p>Complete OEM-compatible seal kits for hydraulic cylinders in construction and industrial equipment.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 10. Chevron Packing Seal -->
+      <a class="product-card" href="products/chevron-packing-seal.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/chevron_packing_seal.png" alt="Chevron Packing Seal">
+        </div>
+        <div class="card-body">
+          <div class="card-category">High Pressure</div>
+          <h3>Chevron Packing Seal</h3>
+          <p>Adjustable V-ring packing sets for high-pressure pumps, valves and stem sealing up to 700 bar.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 11. Wiper Dust Seal -->
+      <a class="product-card" href="products/wiper-dust-seal.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/wiper_dust_seal.png" alt="Wiper Dust Seals">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Exclusion</div>
+          <h3>Wiper Dust Seals</h3>
+          <p>Rod wiper / scraper seals for hydraulic cylinders — protect internal seals from dust and mud.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <!-- 12. Dowty Bonded Seal -->
+      <a class="product-card" href="products/dowty-bonded-seal.html">
+        <div class="card-img-wrap">
+          <img src="../assets/images/dowty_bonded_seal.png" alt="Dowty Bonded Seals">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Port Sealing</div>
+          <h3>Dowty Bonded Seals</h3>
+          <p>Metal-rubber bonded washers for hydraulic port plugs, banjo bolts and threaded fittings.</p>
+          <span class="card-cta">View Product <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== FEATURES STRIP ===== -->
+  <section class="features-strip">
+    <div class="feat-box">
+      <i class="fas fa-shield-alt"></i>
+      <h4>High Durability</h4>
+      <p>Premium materials for extreme conditions</p>
+    </div>
+    <div class="feat-box">
+      <i class="fas fa-drafting-compass"></i>
+      <h4>Precision Design</h4>
+      <p>Engineered to exact tolerances</p>
+    </div>
+    <div class="feat-box">
+      <i class="fas fa-tools"></i>
+      <h4>Custom Solutions</h4>
+      <p>OEM & bespoke sealing available</p>
+    </div>
+    <div class="feat-box">
+      <i class="fas fa-globe-asia"></i>
+      <h4>Pan India Supply</h4>
+      <p>Fast delivery across all states</p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      
+      <!-- COLUMN 1: QUICK LINKS -->
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul class="footer-list">
+          <li><a href="Homeindex.html">Home</a></li>
+          <li><a href="About.html">About Us</a></li>
+          <li><a href="Product.html">Products</a></li>
+          <li><a href="productgallery.html">Gallery</a></li>
+          <li><a href="Contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 2: PRODUCTS -->
+      <div class="footer-col">
+        <h3>Products</h3>
+        <ul class="footer-list">
+          <li><a href="products/rod-step-seal.html">Rod Step Seal</a></li>
+          <li><a href="products/pneumatic-seal.html">Pneumatic Seal</a></li>
+          <li><a href="products/mechanical-seal.html">Mechanical Seal</a></li>
+          <li><a href="products/piston-glyd-ring.html">Piston Glyd Ring</a></li>
+          <li><a href="products/hydraulic-cylinder-seal-kit.html">Hydraulic Cylinder Seal Kit</a></li>
+        </ul>
+      </div>
+
+      <!-- COLUMN 3: GET IN TOUCH -->
+      <div class="footer-col">
+        <h3>Get In Touch</h3>
+        <ul class="footer-list contact-list">
+          <li>
+            <i class="fas fa-building"></i>
+            <span>Sakhashri Seals Corporation</span>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <a href="tel:+918087594463">+91 80875 94463</a><br>
+              <a href="tel:+919049158088">+91 90491 58088</a><br>
+              <a href="tel:+917387595888">+91 73875 95888</a>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:sakhashriseals@gmail.com">sakhashriseals@gmail.com</a>
+          </li>
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>
+              Gat No 680, Sonigara Corner,<br>
+              Near Prem Sagar Sweet, Landewadi,<br>
+              Bhosari, Pune - 411039, MH, India
+            </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- FOOTER BOTTOM -->
+    <div class="footer-bottom">
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/profile.php?id=61565062592459&mibextid=ZbWKwL" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/dynamic_seal_kit?igsh=dHRqamY3Njk3NHN4" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/918087594463" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      
+      <p>© 2026 Sakhashri Seals Corporation. All rights reserved.</p>
+      
+      <div class="footer-legal-links">
+        <a href="Policy.html#privacy">Privacy Policy</a>
+        <a href="Policy.html#terms">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/918087594463" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="../Script/navbar.js"></script>
 </body>
-</html>
 
+</html>

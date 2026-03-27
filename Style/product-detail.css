@@ -1,0 +1,344 @@
+/* ============================================================
+   PRODUCT DETAIL PAGE STYLES — Sakhashri Seals
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary: #0077b6;
+    --primary-dark: #005f92;
+    --accent: #00b4d8;
+    --bg: #f8fafc;
+    --sidebar-bg: #ffffff;
+    --content-bg: #ffffff;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --active-sidebar: #0077b6;
+    --table-head: #0077b6;
+    --badge-bg: #e6f3fd;
+    --badge-color: #0077b6;
+}
+
+body.dark {
+    --bg: #0f172a;
+    --sidebar-bg: #1e293b;
+    --content-bg: #1e293b;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: #334155;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== PRODUCT HERO BANNER ===== */
+.product-hero-banner {
+    background: linear-gradient(135deg, var(--primary) 0%, #023e8a 100%);
+    color: #fff;
+    text-align: center;
+    padding: 54px 20px 40px;
+}
+
+.product-hero-banner h1 {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.product-hero-banner p {
+    font-size: 1rem;
+    opacity: 0.85;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-breadcrumb {
+    font-size: 0.82rem;
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+.hero-breadcrumb a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero-breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* ===== MAIN LAYOUT ===== */
+.product-layout {
+    display: flex;
+    max-width: 1280px;
+    margin: 36px auto;
+    gap: 28px;
+    padding: 0 24px;
+    flex: 1;
+    align-items: flex-start;
+}
+
+/* ===== SIDEBAR ===== */
+.product-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background: var(--sidebar-bg);
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    position: sticky;
+    top: 90px;
+}
+
+.sidebar-header {
+    background: var(--primary);
+    color: #fff;
+    padding: 16px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.sidebar-list {
+    list-style: none;
+}
+
+.sidebar-list li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    font-size: 0.87rem;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    transition: all 0.2s;
+}
+
+.sidebar-list li a:hover {
+    background: #e6f3fd;
+    color: var(--primary);
+    padding-left: 26px;
+}
+
+.sidebar-list li a.active {
+    background: var(--active-sidebar);
+    color: #fff;
+    font-weight: 600;
+}
+
+.sidebar-list li a .s-arrow {
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+/* ===== PRODUCT CONTENT AREA ===== */
+.product-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Product Image */
+.product-image-box {
+    background: var(--content-bg);
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    border: 2px solid var(--border);
+    min-height: 380px;
+}
+
+.product-image-box img {
+    max-width: 100%;
+    max-height: 340px;
+    object-fit: contain;
+    border-radius: 8px;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s;
+}
+
+.product-image-box img:hover {
+    transform: scale(1.04);
+}
+
+/* Info Card */
+.info-card {
+    background: var(--content-bg);
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+    padding: 32px;
+}
+
+.info-card h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.info-card .subtitle {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.info-card p {
+    color: var(--muted);
+    font-size: 0.93rem;
+    line-height: 1.85;
+    margin-bottom: 14px;
+}
+
+/* ===== SPECIFICATIONS TABLE ===== */
+.spec-section {
+    margin-top: 8px;
+}
+
+.spec-section h3 {
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 24px;
+}
+
+.spec-table th {
+    background: var(--table-head);
+    color: #fff;
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.spec-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+}
+
+.spec-table tr:nth-child(even) td {
+    background: rgba(0, 119, 182, 0.04);
+}
+
+.spec-table tr:hover td {
+    background: rgba(0, 119, 182, 0.08);
+}
+
+/* ===== PROPERTIES LIST ===== */
+.properties-list {
+    list-style: none;
+    margin: 10px 0 20px;
+}
+
+.properties-list li {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.89rem;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.properties-list li:last-child {
+    border-bottom: none;
+}
+
+.prop-number {
+    min-width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* ===== APPLICATIONS ===== */
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.app-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--badge-bg);
+    color: var(--badge-color);
+    border-radius: 8px;
+    padding: 11px 14px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.app-badge span {
+    font-size: 1.1rem;
+}
+
+/* ===== PRODUCT RANGE TAGS ===== */
+.product-range {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.range-tag {
+    background: var(--primary);
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .product-layout {
+        flex-direction: column;
+        padding: 0 16px;
+    }
+
+    .product-sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .product-hero-banner h1 {
+        font-size: 1.5rem;
+    }
+}
