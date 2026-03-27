@@ -40,10 +40,7 @@ pipeline {
     }
 
     post {
-        always {
-            echo 'Shutting down test environment...'
-            sh 'docker-compose down'
-        }
+        
         success {
             echo 'Deployment Pipeline Completed Successfully!'
         }
