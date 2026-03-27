@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products</title>
+
+  <link rel="stylesheet" href="../Style/Product.css">
+  <button id="themeToggle" class="theme-btn">🌙</button>
+  
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <h1>Our Products</h1>
+  <p>Explore our advanced sealing solutions</p>
+</section>
+
+<!-- FLOATING SHAPES -->
+<div class="floating-shapes">
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<!-- INTRO -->
+<section class="intro-glass">
+  <h2>Advanced Sealing Solutions</h2>
+  <p> At Sakhashri Seals Corporation, we specialize in delivering high-performance sealing solutions engineered for precision, durability, and efficiency. Our products are designed to perform under extreme industrial conditions while ensuring long service life. </p> 
+  <p> With a commitment to innovation and quality, we provide a wide range of sealing components including rod seals, piston seals, and pneumatic seals. Each product is crafted using advanced materials and modern manufacturing techniques. </p>
+</section>
+
+<!-- FEATURES -->
+<section class="features-advanced">
+  <div class="feature-card"><h3>High Durability</h3></div>
+  <div class="feature-card"><h3>Precision Design</h3></div>
+  <div class="feature-card"><h3>Custom Solutions</h3></div>
+  <div class="feature-card"><h3>Wide Applications</h3></div>
+</section>
+
+<!-- ===== STATS SECTION ===== -->
+<section class="stats-section">
+
+  <div class="stats-container">
+
+    <div class="stat-box">
+      <h2 class="counter">500+</h2>
+      <p>Products</p>
+    </div>
+
+    <div class="stat-box">
+      <h2 class="counter">500+</h2>
+      <p>Clients</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRODUCT GRID -->
+<section class="product-section">
+
+  <h2 class="section-title">Our Products</h2>
+
+  <div class="product-grid">
+
+    <div class="product-card" onclick="openProductPage('Rod Seals')">
+      <img src="../assets/images/rod.png">
+      <h3>Rod Seals</h3>
+      <button>View Product</button>
+    </div>
+
+    <div class="product-card" onclick="openProductPage('Piston Seals')">
+      <img src="../assets/images/piston.png">
+      <h3>Piston Seals</h3>
+      <button>View Product</button>
+    </div>
+
+    <div class="product-card" onclick="openProductPage('Wiper Seals')">
+      <img src="../assets/images/wiper.png">
+      <h3>Wiper Seals</h3>
+      <button>View Product</button>
+    </div>
+
+    <div class="product-card" onclick="openProductPage('Rotary Seals')">
+      <img src="../assets/images/rotary.png">
+      <h3>Rotary Seals</h3>
+      <button>View Product</button>
+    </div>
+
+    <div class="product-card" onclick="openProductPage('Pneumatic Seals')">
+      <img src="../assets/images/pneumatic.avif">
+      <h3>Pneumatic Seals</h3>
+      <button>View Product</button>
+    </div>
+
+    <div class="product-card" onclick="openProductPage('Guide Rings')">
+      <img src="../assets/images/guide.jpg">
+      <h3>Guide Rings</h3>
+      <button>View Product</button>
+    </div>
+
+    <div class="product-card" onclick="openProductPage('O Rings')">
+      <img src="../assets/images/o.png">
+      <h3>O Rings</h3>
+      <button>View Product</button>
+    </div>
+
+    <div class="product-card" onclick="openProductPage('Symmetric Seals')">
+      <img src="../assets/images/smm.png">
+      <h3>Symmetric Seals</h3>
+      <button>View Product</button>
+    </div>
+
+    <div class="product-card" onclick="openProductPage('Cushion Seals')">
+      <img src="../assets/images/cushion.png">
+      <h3>Cushion Seals</h3>
+      <button>View Product</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FULL SCREEN PRODUCT PAGE ===== -->
+<div class="product-full" id="productPage">
+
+  <div class="product-container">
+
+    <!-- SIDEBAR -->
+    <div class="product-sidebar">
+      <h2>Explore</h2>
+      <ul id="menuList">
+        <li data-name="Rod Seals">Rod Seals</li>
+<li data-name="Piston Seals">Piston Seals</li>
+<li data-name="Wiper Seals">Wiper Seals</li>
+<li data-name="Rotary Seals">Rotary Seals</li>
+<li data-name="Pneumatic Seals">Pneumatic Seals</li>
+<li data-name="Guide Rings">Guide Rings</li>
+<li data-name="O Rings">O Rings</li>
+<li data-name="Symmetric Seals">Symmetric Seals</li>
+<li data-name="Cushion Seals">Cushion Seals</li>       
+      </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="product-content">
+
+      <span class="close-btn" onclick="closeProductPage()">×</span>
+
+      <h1 id="fullTitle">Product Name</h1>
+
+      <div class="product-main">
+
+  <div class="left">
+    <img id="fullImage" src="../assets/images/seal-kit.png">
+  </div>
+
+  <div class="right">
+    <div id="fullDesc"></div>
+  </div>
+
+</div>
+  <div class="features">
+  <div class="feature-pill">✔ High durability</div>
+  <div class="feature-pill">✔ Long service life</div>
+  <div class="feature-pill">✔ Precision engineered</div>
+</div>
+</div>
+
+  </div>
+</div>
+
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+
+  <div class="footer-container">
+
+    <!-- COMPANY -->
+    <div class="footer-col">
+      <h3>Sakhashri Seals</h3>
+      <p>
+        We provide high-quality sealing solutions designed for durability, precision, 
+        and performance in industrial applications.
+      </p>
+    </div>
+
+    <!-- LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="Homeindex.html">Home</a></li>
+        <li><a href="About.html">Products</a></li>
+        <li><a href="Product.html">About</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Email: sakhashriseals@gmail.com</p>
+      <p>Phone: +91 8087594463</p>
+      <p>Location: Shreya Seals, Sonigara Corner, Landewadi Chowk, Bhosari, Pune - 411039</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Sakhashri Seals Corporation. All Rights Reserved.</p>
+  </div>
+
+</footer>
+
+<script src="../Script/Product.js"></script>
+
+</body>
+</html>
+
